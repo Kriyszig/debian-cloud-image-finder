@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#D50032">
+    <meta name="description" content="Central database of all Debian cloud images. Find the right Debian cloud image to deply on your favourite cloud platform in a jiffy."/>
+    <link rel="stylesheet" type="text/css" href="../static/styles.css">
+    <link rel="shortcut icon" href="../static/assets/logo.ico" />
+    <title>Debian Cloud Image Finder</title>
+</head>
+<body>
+    <div class="mega-container">
+        <div class="title-container">
+            <img class="deb-logo" src="../static/assets/logo.png" alt="Debian Logo">
+            <div class="title">
+                <p class="main-title">Debian</p>
+                <p class="sub-title">Cloud Image Finder</p>
+            </div>
+        </div>
+        <div class="about-section-container">
+            <div class="about-section">
+                <p class="about-title">About</p>
+                <p class="about-content">
+                    Debian is a versatile operating-system that is progressively getting better with time. With the advancement in cloud computing, Debian is looking to provide
+                    images for some of the most popular cloud serivce peoviders. These images can be used to deploy Debian on your cloud infrastructure quickly without any hassle.
+                    <br>
+                    Turning Debian into a truly universal operating-system one step at a time.
+                </p>
+            </div>
+        </div>
+        <div class="search-container">
+            <label id="search-query-label" for="search-query-field">Search </label>
+            <input id="search-query-field" type="text" placeholder=" Enter the image you want to search for....">
+        </div>
+        <div class="image-table-container">
+            <table id="image-table">
+                <tr style="color: #D50032;">
+                    <td><b>No.</b></td>
+                    <td><b>ID</b></td>
+                    <td><b>Name</b></td>
+                    <td><b>Cloud Service Provider</b></td>
+                    <td><b>Version</b></td>
+                    <td><b>Date</b></td>
+                </tr>
+            </table>
+        </div>
+        <div class="footer">
+            <img class="deb-logo" src="../static/assets/footer-logo.png" alt="Debian Logo">
+            <div style="padding-left: 30px; padding-top: 10px;">
+                <div style="color: #D50032; padding: 2px;">Brought to you by Debian</div>
+                <div style="color: #D50032; width: 100%; text-align: center;">Visit us at <a href="https://www.debian.org/">debian.org</a></div>
+            <div></div>
+        </div>
+    </div>
+    <script async src="../static/main.js"></script>
+</body>
+</html>
