@@ -121,7 +121,7 @@ const insertTableData = (data, n) => {
     const tableEle = document.getElementById('image-table');
     const numRowEle = (data.length > n)? n: data.length;
 
-    for(let i = numRowEle + 1; i < tableEle.rows.length; ++i){
+    for(let i = tableEle.rows.length - 1; i > numRowEle; --i){
         tableEle.deleteRow(i);
     }
 
@@ -163,6 +163,37 @@ const insertTableData = (data, n) => {
     }
 }
 
-insertTableData(imageData, 10);
+insertTableData(imageData, 16);
 
-document.addEventListener('keydown')
+document.addEventListener('keyup', (e) => {
+    let searchTerm = document.getElementById('search-query-field').value. split(' ');
+    let data = []
+    let copyData = imageData.map((a) => a);
+    for(let i = 0; i < searchTerm.length; ++i){
+        let k = copyData.length;
+        let del = []
+        for(let j = 0; j < k; ++j){
+            if(copyData[j].id.toUpperCase().indexOf(searchTerm[i].toUpperCase()) > -1 || copyData[j].name.toUpperCase().indexOf(searchTerm[i].toUpperCase()) > -1 || copyData[j].platform.toUpperCase().indexOf(searchTerm[i].toUpperCase()) > -1 || copyData[j].version.toUpperCase().indexOf(searchTerm[i].toUpperCase()) > -1 || copyData[j].date.indexOf(searchTerm[i]) > -1){
+                data.push(copyData[j]);
+                del.push(j);
+            }
+        }
+        for(let j = 0; j < del.length; ++j){
+            copyData.splice(del[j] - j, 1);
+        }
+    }
+    data.sort(function(a, b){
+        return (new Date(b.date) - new Date(a.date));
+    });
+    insertTableData(data, 16);
+})
+
+document.querySelector('#close-button').onclick = () => {
+    document.getElementById('instruction').style.display = 'none';
+};
+
+document.querySelector('#image-table').onclick = (e) => {
+    if(e.target.parentElement.rowIndex > 0){
+        document.getElementById('instruction').style.display = 'block';
+    }
+};
