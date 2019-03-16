@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#D50032">
+    <meta name="description" content="Central database of all Debian cloud images. Find the right Debian cloud image to deply on your favourite cloud platform in a jiffy."/>
+    <link rel="stylesheet" type="text/css" href="../assets/css/styles.css">
+    <link rel="shortcut icon" http-equiv="Expires" content="Tue, 01 Jan 1980 1:00:00 GMT" href="../assets/logo/logo.ico" />
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>Debian Cloud Image Finder</title>
+</head>
+<body>
+    <div class="mega-conatiner" style="position: relative; min-height: 100%;">
+        <div class="top-bar" style="display: flex; height: 45px; padding: 15px; background-color: black;">
+            <img src="../assets/logo/logo.png" style="height: 100%;">
+            <div class="title" style="margin-left: 15px; color: white;">
+                <p style="margin: 0px; font-size: 28px;">Debian</p>
+                <p style="margin: 0px; font-size: 15px;">Cloud Image Finder</p>
+            </div>
+        </div>
+        <div class="about-section-container" style="padding-top: 50px; display: flex; justify-content: center; padding-right: 10px; padding-left: 10px;">
+            <div class="about-section" style="max-width: 800px; width: 100%;">
+                <p style="color: #D50032; font-size: 20px; font-weight: bold;">OBJECTIVE</p>
+                <p style="color: black; font-size: 15px;">
+                    Debian is developing at speed of light and it may get hard to find the exact image of Debian to deploy on your favourite Cloud Computing Platform.
+                    Debain Cloud Image Finder intends to help developer find the Debian image they are looking for, as quickly as possible. Get the desired image you are looking
+                    for without straying to the second page of Google Search Results.
+                    <br>
+                    Turning Debian into a truly universal operating system one step at a time. 
+                </p>
+            </div>
+        </div>
+        <div class="search-container" style="padding-top: 100px; display: flex; justify-content: center; height: 35px;padding-left: 10px; padding-right: 10px;">
+            <input id="search-field" style="max-width: 800px; width: 100%; height: 24px; padding: 0px; border:solid 2px rgb(239, 240, 241); border-radius: 8px; padding:5px; margin-right: 15px;" placeholder="Enter the image details">
+            <button id="submit-button" style="margin-left: 5px; height: 35px; margin: 2px; width: 75px; border: 0px;">Submit</button>
+        </div>
+        <div id="table-container" style="padding-top: 20px; display: flex; justify-content: center; padding-left: 10px; padding-right: 10px; padding-bottom: 65px;">
+            <table id="image-table" style="max-width: 1000px; width: 100%; border-collapse: collapse; text-align: center; cursor: default; font-size: 15px;">
+                <thead style="color:#D50032; border-bottom: 2px; font-weight: bold; font-family: 'Open Sans Condensed';">
+                    <tr>
+                        <td>ID</td>
+                        <td>Platform</td>
+                        <td>Zone</td>
+                        <td>Name</td>
+                        <td>Version</td>
+                        <td>Architecture</td>
+                        <td>Instance</td>
+                        <td>Date</td>
+                    </tr>
+                </thead>
+                <tr v-for="items in imageData" title="Click to discover more">
+                    <td v-for="item in items">{{ item }}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="footer" style="position: absolute; bottom: 0; display:flex; justify-content:center; width: 100%; padding:10px;">
+            <img src="../assets/logo/footer-logo.png" style="height: 60px;">
+            <div style="padding-left:15px; text-align: center;">
+                <p style="margin-bottom:0px;">Brought to you by Debian</p>
+                <p style="margin-top:0px;">Visit us at <a href="https://www.debian.org/" style="color:#D50032">debian.org</a></p>
+            </div>
+        </div>
+    </div>
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>
