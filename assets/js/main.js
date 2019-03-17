@@ -1,7 +1,23 @@
+let dataDisplayed = null;
+
 let tableContent = new Vue({
     el: '#table-container',
     data: {
         imageData: null
+    }
+});
+
+let imgInfo = new Vue({
+    el: '#img-info-container',
+    data: {
+        imgLink: null,
+        imgAlt: null,
+        imgName: null,
+        imgUrl: null,
+        author: null,
+        platform: null,
+        guideWiz: null,
+        guideCli: null
     }
 });
 
@@ -158,14 +174,28 @@ const imgData = [
     }
 ];
 
-tableContent.imageData = imgData;
+dataDisplayed = imgData;
+tableContent.imageData = dataDisplayed;
 
 document.querySelector('#image-table').onclick = (e) => {
     const index = e.target.parentElement.rowIndex;
-    console.log(index);
+    if(index > 0){
+        const cellData = dataDisplayed[index - 1];
+        if(cellData.platform.indexOf('Amazon') > -1){
+            imgInfo.imgName = cellData.id + '_AWS_' + cellData.zone + '_' + cellData.name + '_' + cellData.instance;
+            imgInfo.imgAlt = 'AWS';
+            imgInfo.imgUrl = 'https://aws.amazon.com/marketplace/pp/B073HW9SP3';
+            imgInfo.imgLink = '../assets/logo/aws-logo.png';
+            imgInfo.author = 'Amazon';
+            imgInfo.platform = 'AWS';
+            imgInfo.guideWiz = 'https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/launching-instance.html';
+            imgInfo.guideCli = 'https://docs.aws.amazon.com/cli/latest/reference/opsworks/create-instance.html';
+        }
+        document.getElementById('img-info-container').style.display = 'flex';
+    }
 };
 
-document.querySelector('#submit-button').onclick = () => {
+const updateTable = () => {
     let keywrds = document.querySelector('#search-field').value.split(' ')
     let dispData = imgData.map((e) => e);
     let maxRes = -1;
@@ -185,6 +215,12 @@ document.querySelector('#submit-button').onclick = () => {
         }
         maxRes = dispData.length;
     }
-
-    tableContent.imageData = dispData;
+    dataDisplayed = dispData;
+    tableContent.imageData = dataDisplayed;
 };
+
+document.querySelector('#submit-button').onclick = updateTable;
+
+const closeInfo = () => {
+    document.getElementById('img-info-container').style.display = 'none';
+}

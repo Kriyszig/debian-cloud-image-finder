@@ -61,6 +61,23 @@
                 <p style="margin-top:0px;">Visit us at <a href="https://www.debian.org/" style="color:#D50032">debian.org</a></p>
             </div>
         </div>
+        <div id="img-info-container" style="position:absolute; top:0; left:0; height:100%; width:100%; background-color: rgba(0, 0, 0, 0.75); display: none; align-items: center; justify-content: center;">
+            <div style="height: 800px; width: 400px; background-color: white; text-align: center; padding: 10px; border:solid 3px black; border-radius: 15px;">
+                <div style="display:flex; flex-direction:row-reverse;">
+                    <button onclick="closeInfo()" style="border: 0px; padding: 0px; height: 30px; width: 30px; color: #D50032;">X</button>
+                </div>
+                <div style="height: 400px; max-width: 100%; display: flex; justify-content: center;">
+                    <img v-bind:src="imgLink" v-bind:alt="imgAlt" style="padding-top:50px; height:300px; width:300px;">
+                </div>
+                <div style="text-align:center; padding: 5px;">Link to image</div>
+                <a v-bind:href="imgUrl" style="color: #D50032;">{{imgName}}</a>
+                <div style="padding-top: 150px;">
+                    <p style="color:#D50032">Having troubles strating Debian?</p>
+                    <p style="font-size: 15px; margin-bottom:0px;">Please go through this step-by-step <a v-bind:href="guideWiz">guide</a> by {{author}} to host Debain using the {{platform}} wizard</p>
+                    <p style="font-size: 15px; margin-top:0px;">If you are using the {{platform}} CLI, please read this <a v-bind:href="guideCli">launching linux on cloud guide</a> to get the VM up and running in no time</p>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="../assets/js/main.js"></script>
 </body>
