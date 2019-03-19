@@ -191,6 +191,16 @@ document.querySelector('#image-table').onclick = (e) => {
             imgInfo.guideWiz = 'https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/launching-instance.html';
             imgInfo.guideCli = 'https://docs.aws.amazon.com/cli/latest/reference/opsworks/create-instance.html';
         }
+        else if(cellData.platform.indexOf('Microsoft') > -1){
+            imgInfo.imgName = cellData.id + '_Azure_' + cellData.zone + '_' + cellData.name + '_' + cellData.instance;
+            imgInfo.imgAlt = 'Azure';
+            imgInfo.imgUrl = 'https://azuremarketplace.microsoft.com/en-us/marketplace/apps/credativ.Debian';
+            imgInfo.imgLink = '../assets/logo/azure.png';
+            imgInfo.author = 'Mirosoft';
+            imgInfo.platform = 'Azure';
+            imgInfo.guideWiz = 'https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal';
+            imgInfo.guideCli = 'https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-start';
+        }
         document.getElementById('img-info-container').style.display = 'flex';
     }
 };
