@@ -21,6 +21,8 @@ let imgInfo = new Vue({
     }
 });
 
+let searched = false;
+
 const imgData = [
     {
         id: "DEB091331",
@@ -205,9 +207,9 @@ document.querySelector('#image-table').onclick = (e) => {
     }
 };
 
-const updateTable = () => {
+const updateTable = (datasuperset) => {
     let keywrds = document.querySelector('#search-field').value.split(' ')
-    let dispData = imgData.map((e) => e);
+    let dispData = datasuperset.map((e) => e);
     let maxRes = -1;
 
     for(let i = 0; i < keywrds.length; ++i){
@@ -229,7 +231,24 @@ const updateTable = () => {
     tableContent.imageData = dataDisplayed;
 };
 
-document.querySelector('#submit-button').onclick = updateTable;
+document.querySelector('#submit-button').onclick = () => {
+    updateTable(imgData);
+    searched = true;
+}
+
+document.getElementById('search-field').addEventListener('keyup', (e) => {
+    if(e.key === 'Enter'){
+        updateTable(imgData);
+        searched = true;
+    }
+    else if(searched && e.key === 'Backspace'){
+        updateTable(imgData);
+    }
+    else {
+        searched = false;
+    }
+    
+})
 
 const closeInfo = () => {
     document.getElementById('img-info-container').style.display = 'none';
