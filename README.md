@@ -1,5 +1,14 @@
-# cloud-image-finder
+# Debian Cloud Image Finder
 
-Open `./templates/mainPage.html` in browser to view the interface. You can view the look of interface [here](https://imgur.com/a/PD1xdqp).
-<br />
-Interface looks consistent on Chrome and Firefox [Latest version]. The interface changes appropriately when loaded in Chrome for Android.
+Here rests the code for the project task for Debian GSoC 2019 project - Debian Cloud Image Finder.
+
+This is a basic version showing the layout and design of the conceptulized website<br>
+Code is completely written using the holy trinity -  HTML, CSS and JS. Vue.js production ready CDN was used to serve asnd render dynamic contents..
+<br>
+To run the project, clone this repository, navigate to `templates` and open `mainPage.html` in the browser of your choice (as long as it's not named Internet Explorer).
+
+### Debian GSoC 2019 Idea List
+
+List of all the projects proposed under Debian can be found [here](https://wiki.debian.org/SummerOfCode2019/Projects). Debian Cloud Image Finder idea is listed [here](https://wiki.debian.org/SummerOfCode2019/Projects#SummerOfCode2019.2FApprovedProjects.2FDebianCloudImageFinder.Debian_Cloud_Image_Finder)
+
+This website isn't hosted online currently. If you want to see what the website looks like visually, head ovet to [this imgur page](https://imgur.com/a/PD1xdqp)
